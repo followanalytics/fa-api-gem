@@ -20,7 +20,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+```ruby
+# In an initializer:
+Followanalytics.configure do |config|
+  config.api_key = ENV['FA_API_KEY']
+  config.api_base_url = ENV['FA_API_BASE_URL'] # Optional, defaults to "https://api.follow-apps.com".
+end
+```
 
 ## Development
 
