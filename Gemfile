@@ -7,4 +7,5 @@ group :developement do
 end
 group :test do
   gem 'rspec'
+  gem 'faker'
 end
