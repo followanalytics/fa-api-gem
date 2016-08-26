@@ -8,4 +8,10 @@ describe Followanalytics::Attributes::Client do
       expect(client.methods).to include(*methods)
     end
   end
+
+  describe 'set_value' do
+  end
+
+  describe 'unset_value' do
+  end
 end
