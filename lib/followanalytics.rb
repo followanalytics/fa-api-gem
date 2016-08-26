@@ -1,4 +1,5 @@
 require "followanalytics/version"
+require "followanalytics/attributes"
 
 module Followanalytics
   class << self
