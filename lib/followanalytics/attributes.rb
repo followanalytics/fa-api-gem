@@ -59,7 +59,7 @@ module Followanalytics
         params = Oj.dump({
           "sor" => @sor_identifier,
           "api_key" => api_key,
-          "customer_attribute_values" => hash
+          "customer_attribute_values" => [hash]
         })
 
         response = RestClient.post(attributes_url, params, content_type: :json)
