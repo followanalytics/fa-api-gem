@@ -32,7 +32,7 @@ module Followanalytics
       end
 
       # TODO: Attributes of type set.
-      def unset_value(key, user_id)
+      def unset_value(key, customer_id)
         hash = attribute_hash(nil, key, customer_id)
         send_attributes(hash)
       end
