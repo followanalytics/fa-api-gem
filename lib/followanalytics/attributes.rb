@@ -25,15 +25,27 @@ module Followanalytics
         end
       end
 
-      # TODO: Attributes of type set.
       def set_value(value, key, customer_id)
         hash = attribute_hash(value, key, customer_id)
         send_attributes(hash)
       end
 
-      # TODO: Attributes of type set.
       def unset_value(key, customer_id)
         hash = attribute_hash(nil, key, customer_id)
+        send_attributes(hash)
+      end
+
+      def add_set_value(value, key, customer_id)
+        hash = attribute_hash(value, key, customer_id).tap do |hsh|
+          hsh['action_type'] = 'ADD'
+        end
+        send_attributes(hash)
+      end
+
+      def remove_set_value(value, key, customer_id)
+        hash = attribute_hash(value, key, customer_id).tap do |hsh|
+          hsh['action_type'] = 'REMOVE'
+        end
         send_attributes(hash)
       end
 

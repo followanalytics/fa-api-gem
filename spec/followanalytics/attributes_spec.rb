@@ -14,4 +14,10 @@ describe Followanalytics::Attributes::Client do
 
   describe 'unset_value' do
   end
+
+  describe 'add_set_value' do
+  end
+
+  describe 'remove_set_value' do
+  end
 end
