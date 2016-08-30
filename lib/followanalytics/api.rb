@@ -1,4 +1,4 @@
-module FollowAnalytics
+module Followanalytics
   class API
     class << self
 
