@@ -14,22 +14,45 @@ module Followanalytics
         profile_picture
       ).freeze
 
+      # Initializes the Attributes client.
+      #
+      # @param sor_identifier [String] The System of Record we wish to set
+      #   attributes to.
+      # @raise [Followanalytics::Error] When the System of Record is not
+      #   defined.
       def initialize(sor_identifier)
         raise Followanalytics::Error, MISSING_SOR if sor_identifier.nil?
         @sor_identifier = sor_identifier
       end
 
       PREDEFINED_ATTRIBUTE_KEYS.each do |attribute_key|
+        # TODO: Find a way to document these.
         define_method("set_#{attribute_key}") do |value, customer_id|
           set_value(value, attribute_key, customer_id)
         end
       end
 
+      # Set one value for a customer.
+      #
+      # @param value The value to set.
+      # @param key The key of the attribute.
+      # @param customer_id The customer we want to set the attribute to.
+      #
+      # @example Set the value "apple" to the attribute with the key "favorite_fruit" for the customer "tim"
+      #   client.set_value("apple", "favorite_fruit", "tim")
       def set_value(value, key, customer_id)
         hash = attribute_hash(value, key, customer_id)
         send_attributes(hash)
       end
 
+      # Unset one value for a customer.
+      #
+      # @param value The value to unset.
+      # @param key The key of the attribute.
+      # @param customer_id The customer we want to unset the attribute to.
+      #
+      # @example Unset the value "apple" to the attribute with the key "favorite_fruit" for the customer "tim"
+      #   client.unset_value("apple", "favorite_fruit", "tim")
       def unset_value(key, customer_id)
         hash = attribute_hash(nil, key, customer_id)
         send_attributes(hash)
@@ -76,6 +99,7 @@ module Followanalytics
 
         response = RestClient.post(attributes_url, params, content_type: :json)
       rescue RestClient::Exception => exception
+        binding.pry
         raise Followanalytics::Error.from_rest_client(exception)
       end
     end
