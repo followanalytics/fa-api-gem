@@ -26,8 +26,39 @@ Or install it yourself as:
 # In an initializer:
 Followanalytics.configure do |config|
   config.api_key = ENV['FA_API_KEY']
-  config.api_base_url = ENV['FA_API_BASE_URL'] # Optional, defaults to "https://api.follow-apps.com".
 end
+```
+
+### Using the attributes
+
+#### Create a client
+```ruby
+client = Followanalytics::Attributes::Client.new(sor_identifier)
+```
+
+#### Setting a value to a predefined attribute
+```ruby
+client.set_first_name("Tim", "customer-00001")
+```
+
+#### Setting a value to a custom attribute
+```ruby
+client.set_value("apple", "favorite_fruit", "customer-00001")
+```
+
+#### Unsetting an attribute value
+```ruby
+client.unset_value("favorite_fruit", "customer-00001")
+```
+
+#### Adding a value to an attribute of type set
+```ruby
+customer.add_set_value("strawberry", "fruit_salad", "customer-00001")
+```
+
+#### Removing a value to an attribute of type set
+```ruby
+customer.remove_set_value("strawberry", "fruit_salad", "customer-00001")
 ```
 
 ## Development
