@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Followanalytics::VERSION
   spec.required_ruby_version = '>= 2.0.0'
   spec.authors       = ["José Carlos Joaquim"]
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
-  spec.homepage      = "https://github.com/jjoaquim/followanalytics"
+  spec.summary       = %q{Ruby client for the FollowAnalytics API.}
+  spec.description   = %q{Ruby client for the FollowAnalytics API.}
+  spec.homepage      = "https://github.com/followanalytics/fa-api-gem"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -20,18 +20,6 @@ Gem::Specification.new do |spec|
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
-  end
-
-  spec.files = `git ls-files`.split($RS).reject do |file|
-    file =~ %r{^(?:
-    spec/.*
-    |Gemfile
-    |Rakefile
-    |\.rspec
-    |\.gitignore
-    |\.rubocop.yml
-    |.*\.eps
-    )$}x
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
