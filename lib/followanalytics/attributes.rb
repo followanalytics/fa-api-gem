@@ -47,7 +47,6 @@ module Followanalytics
 
       # Unset one value for a customer.
       #
-      # @param value The value to unset.
       # @param key The key of the attribute.
       # @param customer_id The customer we want to unset the attribute to.
       #
