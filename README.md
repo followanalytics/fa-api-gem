@@ -53,12 +53,12 @@ client.unset_value("favorite_fruit", "customer-00001")
 
 #### Adding a value to an attribute of type set
 ```ruby
-customer.add_set_value("strawberry", "fruit_salad", "customer-00001")
+client.add_set_value("strawberry", "fruit_salad", "customer-00001")
 ```
 
 #### Removing a value to an attribute of type set
 ```ruby
-customer.remove_set_value("strawberry", "fruit_salad", "customer-00001")
+client.remove_set_value("strawberry", "fruit_salad", "customer-00001")
 ```
 
 ## Development
