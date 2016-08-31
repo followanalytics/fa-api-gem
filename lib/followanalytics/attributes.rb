@@ -57,6 +57,14 @@ module Followanalytics
         send_attributes(hash)
       end
 
+      # Add a value to an attribute of type set.
+      #
+      # @param value The value to add to the set.
+      # @param key The key of the set attribute.
+      # @param customer_id The customer we want to unset the attribute to.
+      #
+      # @example Add the value "strawberry" to the set attribute with the key "fruit_salad" for the customer "tim"
+      #   client.add_set_value("strawberry", "fruit_salad", "tim")
       def add_set_value(value, key, customer_id)
         hash = attribute_hash(value, key, customer_id).tap do |hsh|
           hsh['action_type'] = 'ADD'
@@ -64,6 +72,14 @@ module Followanalytics
         send_attributes(hash)
       end
 
+      # Remove a value to an attribute of type set.
+      #
+      # @param value The value to add to the set.
+      # @param key The key of the set attribute.
+      # @param customer_id The customer we want to unset the attribute to.
+      #
+      # @example Remove the value "strawberry" to the set attribute with the key "fruit_salad" for the customer "tim"
+      #   client.remove_set_value("strawberry", "fruit_salad", "tim")
       def remove_set_value(value, key, customer_id)
         hash = attribute_hash(value, key, customer_id).tap do |hsh|
           hsh['action_type'] = 'REMOVE'
