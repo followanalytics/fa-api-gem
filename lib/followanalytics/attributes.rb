@@ -52,7 +52,7 @@ module Followanalytics
       # @param customer_id The customer we want to unset the attribute to.
       #
       # @example Unset the value "apple" to the attribute with the key "favorite_fruit" for the customer "tim"
-      #   client.unset_value("apple", "favorite_fruit", "tim")
+      #   client.unset_value("favorite_fruit", "tim")
       def unset_value(key, customer_id)
         hash = attribute_hash(nil, key, customer_id)
         send_attributes(hash)
