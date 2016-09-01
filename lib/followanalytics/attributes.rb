@@ -114,7 +114,6 @@ module Followanalytics
 
         response = RestClient.post(attributes_url, params, content_type: :json)
       rescue RestClient::Exception => exception
-        binding.pry
         raise Followanalytics::Error.from_rest_client(exception)
       end
     end
