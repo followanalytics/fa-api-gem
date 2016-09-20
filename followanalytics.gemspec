@@ -5,6 +5,7 @@ require 'followanalytics/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "followanalytics"
+  spec.email         = "technique@followanalytics.com"
   spec.version       = Followanalytics::VERSION
   spec.required_ruby_version = '>= 2.0.0'
   spec.authors       = ["José Carlos Joaquim"]
