@@ -4,7 +4,7 @@ gemspec
 
 # Specify your gem's dependencies in followanalytics.gemspec
 group :developement do
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.49.0'
   gem 'byebug'
 end
 
